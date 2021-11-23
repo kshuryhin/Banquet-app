@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="816.0" prefWidth="1330.0" style="-fx-background-color: #83C7D6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.CreateSupplyController">
+   <children>
+      <Label layoutX="608.0" layoutY="42.0" text="Закупівля" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="193.0" layoutY="177.0" text="Виберіть назву продукту:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="productName" layoutX="555.0" layoutY="176.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: #252121;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ChoiceBox>
+      <Label layoutX="217.0" layoutY="253.0" text="Введіть дату поставки:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="208.0" layoutY="312.0" text="Оберіть постачальника:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="supplierName" layoutX="555.0" layoutY="311.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: #252121;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ChoiceBox>
+      <Label layoutX="315.0" layoutY="370.0" text="Введіть вагу:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="mass" layoutX="555.0" layoutY="369.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: #252121;" />
+      <Button layoutX="581.0" layoutY="709.0" mnemonicParsing="false" onAction="#createSupply" prefHeight="47.0" prefWidth="168.0" style="-fx-background-color: #252121;" text="Завершити" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="1263.0" onMouseClicked="#switchToFunctions" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@exit.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="177.0" layoutY="427.0" text="Введіть вартість поставки:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="supplyPrice" layoutX="555.0" layoutY="426.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: #252121;" />
+      <DatePicker fx:id="supplyDate" layoutX="555.0" layoutY="252.0" prefHeight="25.0" prefWidth="221.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="816.0" prefWidth="1330.0" style="-fx-background-color: #83C7D6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.ProductListController">
+   <children>
+      <Label layoutX="553.0" layoutY="49.0" text="Довідник продуктів" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="1263.0" onMouseClicked="#switchToFunctions" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@exit.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <TableView fx:id="prodListID" layoutX="280.0" layoutY="111.0" prefHeight="431.0" prefWidth="770.0">
+        <columns>
+          <TableColumn fx:id="dishName" prefWidth="151.0" text="Назва блюда" />
+          <TableColumn fx:id="prodName" prefWidth="151.0" text="Назва продукту" />
+            <TableColumn fx:id="shelfLife" prefWidth="151.0" text="Продукт придатний до" />
+            <TableColumn fx:id="fromCountry" prefWidth="185.0" text="Країна похоження продукту" />
+            <TableColumn fx:id="prodNum" prefWidth="130.0" text="Кількість продуктів" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

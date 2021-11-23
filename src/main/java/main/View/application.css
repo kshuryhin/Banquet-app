@@ -1,0 +1,73 @@
+#login{
+    -fx-text-fill: #A17F06;
+}
+
+#password{
+    -fx-text-fill: #A17F06;
+}
+
+#date, #banquetName, #guestNum, #empNum, #dishNum, #supplyDate, #mass, #custName, #custLastName, #custAddress, #custEmail, #custPhone,
+#guests, #banquet, #employeenum, #customer, #data, #supplierName, #supplyPrice{
+    -fx-text-fill: #A17F06;
+}
+
+#choiceBox, #customer {
+    -fx-mark-color: #A17F06;
+    -fx-text-fill: #A17F06;
+}
+
+#choiceBox .label{
+    -fx-text-fill: #A17F06;
+}
+
+#choiceBox .menu-item{
+    -fx-background-color:  #252121;
+}
+
+#customer .menu-item{
+    -fx-background-color:  #252121;
+}
+#customer .label{
+    -fx-text-fill: #A17F06;
+}
+
+#productName .menu-item{
+    -fx-background-color:  #252121;
+}
+#productName .label{
+    -fx-text-fill: #A17F06;
+}
+
+#supplierName .menu-item{
+    -fx-background-color:  #252121;
+}
+#supplierName .label{
+    -fx-text-fill: #A17F06;
+}
+
+
+#moreDish{
+    -fx-text-fill: #A17F06;
+}
+
+.table-view .table-cell{
+    -fx-background-color: #feca57;
+}
+
+.table-view .column-header {
+    -fx-background-color: #ff9f43;
+    -fx-border-color: #dfe4ea;
+    -fx-border-insets: 0 -1 0 -1;
+}
+
+.table-row-cell{
+    -fx-border-color: #dfe4ea;
+    -fx-border-insets: -1 -1 0 -1;
+}
+
+.text-field .label{
+    -fx-text-fill: #A17F06;
+}
+
+
+

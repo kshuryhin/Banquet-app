@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="816.0" prefWidth="1330.0" style="-fx-background-color: #83C7D6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.Controller">
+   <children>
+      <ImageView fitHeight="216.0" fitWidth="288.0" layoutX="521.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="1263.0" layoutY="6.0" onMouseClicked="#switchToAccount" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@account.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Button layoutX="131.0" layoutY="354.0" mnemonicParsing="false" onAction="#switchToPriceList" prefHeight="40.0" prefWidth="235.0" style="-fx-background-color: #252121;" text="Прайс-лист блюд" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="907.0" layoutY="354.0" mnemonicParsing="false" onAction="#switchToProductList" prefHeight="40.0" prefWidth="235.0" style="-fx-background-color: #252121;" text="Довідник продуктів" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="548.0" layoutY="354.0" mnemonicParsing="false" onAction="#switchToOrder" prefHeight="40.0" prefWidth="235.0" style="-fx-background-color: #252121;" text="Створити замовлення" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="131.0" layoutY="563.0" mnemonicParsing="false" onAction="#switchToSupply" prefHeight="40.0" prefWidth="235.0" style="-fx-background-color: #252121;" text="Закупівля продуктів" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="907.0" layoutY="563.0" mnemonicParsing="false" onAction="#switchToEmployeeList" prefHeight="40.0" prefWidth="235.0" style="-fx-background-color: #252121;" text="Облік співробітників" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="548.0" layoutY="695.0" mnemonicParsing="false" onAction="#switchToEnter" prefHeight="40.0" prefWidth="235.0" style="-fx-background-color: #252121;" text="Вийти" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="548.0" layoutY="563.0" onAction="#switchToCreateCustomer" mnemonicParsing="false" prefHeight="40.0" prefWidth="235.0" style="-fx-background-color: #252121;" text="Новий клієнт" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

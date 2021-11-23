@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="816.0" prefWidth="1330.0" style="-fx-background-color: #83C7D6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.EmployeeListController">
+   <children>
+      <Label layoutX="546.0" layoutY="38.0" text="Облік співробітників" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="1263.0" layoutY="5.0" onMouseClicked="#switchToFunctions" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@exit.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <TableView fx:id="empListTable" layoutX="179.0" layoutY="142.0" prefHeight="393.0" prefWidth="975.0">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="139.0" text="Ім'я" />
+          <TableColumn fx:id="lastName" prefWidth="139.0" text="Прізвище" />
+            <TableColumn fx:id="phone" prefWidth="139.0" text="Номер телефону" />
+            <TableColumn fx:id="address" prefWidth="139.0" text="Адреса" />
+            <TableColumn fx:id="email" prefWidth="139.0" text="Пошта" />
+            <TableColumn fx:id="employeeBanquetName" prefWidth="139.0" text="Назва банкету" />
+            <TableColumn fx:id="employeeDate" prefWidth="139.0" text="Дата проведення" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

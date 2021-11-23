@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="816.0" prefWidth="1330.0" style="-fx-background-color: #83C7D6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.AccountController">
+   <children>
+      <ImageView fitHeight="216.0" fitWidth="288.0" layoutX="521.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="showLogin" layoutX="521.0" layoutY="337.0" text="Логін:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="727.0" layoutY="340.0" />
+      <Label fx:id="showPassword" layoutX="521.0" layoutY="397.0" text="Пароль:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="61.0" layoutY="591.0" mnemonicParsing="false" onAction="#showSupplyNumber" prefHeight="35.0" prefWidth="241.0" style="-fx-background-color: #252121;" text="Кількість замовлень" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="535.0" layoutY="591.0" mnemonicParsing="false" onAction="#switchToAClientAnalysis" prefHeight="35.0" prefWidth="241.0" style="-fx-background-color: #252121;" text="Аналіз клієнтів" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="1034.0" layoutY="591.0" mnemonicParsing="false" onAction="#switchToASuppliers" prefHeight="35.0" prefWidth="241.0" style="-fx-background-color: #252121;" text="Постачальники" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="1256.0" layoutY="7.0" onMouseClicked="#switchToFunctions" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@exit.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="816.0" prefWidth="1330.0" style="-fx-background-color: #83C7D6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.ClientAnalysisController">
+   <children>
+      <Label layoutX="578.0" layoutY="60.0" text="Аналіз клієнтів" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="1257.0" onMouseClicked="#switchToAccount" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@exit.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <TableView fx:id="userTable" layoutX="265.0" layoutY="119.0" prefHeight="466.0" prefWidth="800.0" style="-fx-background-color: #6BA2AE;">
+        <columns>
+          <TableColumn fx:id="ID" prefWidth="133.0" text="ID" />
+          <TableColumn fx:id="Name" prefWidth="133.0" text="Ім'я" />
+            <TableColumn fx:id="LastName" prefWidth="133.0" text="Прізвище" />
+            <TableColumn fx:id="Address" prefWidth="133.0" text="Адрес" />
+            <TableColumn fx:id="Phone" prefWidth="133.0" text="Телефон" />
+            <TableColumn fx:id="Email" prefWidth="133.0" text="Пошта" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

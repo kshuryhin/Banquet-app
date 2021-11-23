@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="816.0" prefWidth="1330.0" style="-fx-background-color: #83C7D6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.AutorizationController">
+   <children>
+      <ImageView fitHeight="216.0" fitWidth="288.0" layoutX="521.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="498.0" layoutY="318.0" text="Твій вибір у проведення банкету!">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="login" layoutX="491.0" layoutY="408.0" prefHeight="49.0" prefWidth="349.0" promptText="Логін" style="-fx-background-color: #252121;">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="password" layoutX="491.0" layoutY="491.0" prefHeight="49.0" prefWidth="349.0" promptText="Пароль" style="-fx-background-color: #252121;">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="608.0" layoutY="638.0" mnemonicParsing="false" onAction="#autorization" prefHeight="41.0" prefWidth="116.0" style="-fx-background-color: #252121;" text="Увійти" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="1249.0" layoutY="10.0" onMouseClicked="#switchToEnter" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@exit.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>
