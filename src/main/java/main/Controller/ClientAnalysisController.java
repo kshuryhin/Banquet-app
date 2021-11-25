@@ -1,23 +1,29 @@
 package main.Controller;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import main.Model.Customer;
+import main.Model.CustomerOrder;
 import main.Model.Repository;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,8 +31,24 @@ import java.sql.SQLException;
 public class ClientAnalysisController {
     private Stage stage;
     private Scene scene;
+    URL cssURL;
+
+    {
+        try {
+            cssURL = new File("src/main/java/main/View/application.css").toURI().toURL();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    String css = cssURL.toExternalForm();
+
     @FXML
     TableView<Customer> userTable = new TableView<>();
+    @FXML
+    Button showOrderByClient = new Button();
+    @FXML
+    ChoiceBox<String> noOrders = new ChoiceBox<>();
     @FXML
     TableColumn ID = new TableColumn();
     @FXML
@@ -39,9 +61,20 @@ public class ClientAnalysisController {
     TableColumn Phone = new TableColumn();
     @FXML
     TableColumn Email = new TableColumn();
+
     @FXML
-    public void initialize() throws SQLException {
+    public void initialize() throws SQLException, IOException {
         viewUserTable();
+        if (Repository.autorizedUser.getPrivilege() == "Admin"){
+            showOrderByClient.setDisable(false);
+            noOrders.setDisable(false);
+            ObservableList<String> list = FXCollections.observableArrayList();
+            ResultSet rs = Repository.getCustomersWithoutOrders();
+            while (rs.next()){
+                list.add("Name: " + rs.getString("Name") + " LastName: " + rs.getString("LastName"));
+            }
+            noOrders.setItems(list);
+        }
     }
 
     public void switchToAccount(MouseEvent event) throws IOException {
@@ -49,6 +82,16 @@ public class ClientAnalysisController {
         Parent root = FXMLLoader.load(url);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToCustomerOrder(Event event) throws IOException {
+        URL url = new File("src/main/java/main/View/ordersByCustomer.fxml").toURI().toURL();
+        Parent root = FXMLLoader.load(url);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }
@@ -78,4 +121,6 @@ public class ClientAnalysisController {
         }
         info.close();
     }
+
+
 }

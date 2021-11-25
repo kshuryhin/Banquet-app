@@ -2,11 +2,13 @@ package main.Controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -34,17 +36,34 @@ public class SupplierAnalysisController {
     TableColumn Phone = new TableColumn();
     @FXML
     TableColumn Address = new TableColumn();
+    @FXML
+    Button newSupplier = new Button();
 
 
     @FXML
     public void initialize() throws SQLException {
         viewSupplierTable();
+        if (Repository.autorizedUser.getPrivilege() == "Admin"){
+            newSupplier.setDisable(false);
+        }
     }
     public void switchToAccount(MouseEvent event) throws IOException {
         URL url = new File("src/main/java/main/View/account.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToCreateSupplier(Event event) throws IOException {
+        URL url = new File("src/main/java/main/View/createSupplier.fxml").toURI().toURL();
+        URL cssURL = new File("src/main/java/main/View/application.css").toURI().toURL();
+        String css = cssURL.toExternalForm();
+        Parent root = FXMLLoader.load(url);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }

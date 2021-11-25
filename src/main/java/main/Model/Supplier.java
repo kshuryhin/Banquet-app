@@ -6,11 +6,27 @@ public class Supplier {
     private String Phone;
     private String Address;
 
+    public Supplier(){
+
+    }
+
     public Supplier(int supID, String Name, String Phone, String Address){
         this.ID = supID;
         this.Name = Name;
         this.Phone = Phone;
         this.Address = Address;
+    }
+
+    public void setName(String name){
+        this.Name = name;
+    }
+
+    public void setPhone(String phone){
+        this.Phone = phone;
+    }
+
+    public void setAddress(String address){
+        this.Address = address;
     }
 
     public int getID(){

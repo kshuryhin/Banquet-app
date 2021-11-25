@@ -32,6 +32,7 @@ public class AutorizationController {
         User user = new User();
         user.setLogin(login.getText());
         user.setPassword(password.getText());
+        int id = Repository.autorization(user);
 
         if (login.getText().trim().isEmpty() || password.getText().trim().isEmpty()){
             Image icon = new Image("file:src/main/java/main/View/logo.png");
@@ -50,7 +51,7 @@ public class AutorizationController {
             errorStage.setHeight(200);
             errorStage.show();
 
-        } else if (Repository.autorization(user) == 0){
+        } else if (id == 0){
             Image icon = new Image("file:src/main/java/main/View/logo.png");
             Stage errorStage = new Stage();
 
@@ -68,6 +69,7 @@ public class AutorizationController {
             errorStage.show();
         } else {
             Repository.autorizedUser = user;
+            Repository.ifAdmin(id);
             switchToFunctions(event);
         }
     }

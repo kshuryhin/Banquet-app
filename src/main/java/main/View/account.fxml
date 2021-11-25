@@ -58,5 +58,21 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
+      <Button fx:id="analysisSups" layoutX="61.0" layoutY="719.0" mnemonicParsing="false" onAction="#switchToSupplyAnalysis" prefHeight="35.0" prefWidth="241.0" style="-fx-background-color: #252121;" text="Аналіз постачань" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="job"  layoutX="1034.0" layoutY="719.0" onAction="#switchToJob" mnemonicParsing="false" prefHeight="35.0" prefWidth="241.0" style="-fx-background-color: #252121;" text="Аналіз посад" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

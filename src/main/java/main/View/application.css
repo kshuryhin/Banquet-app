@@ -7,11 +7,11 @@
 }
 
 #date, #banquetName, #guestNum, #empNum, #dishNum, #supplyDate, #mass, #custName, #custLastName, #custAddress, #custEmail, #custPhone,
-#guests, #banquet, #employeenum, #customer, #data, #supplierName, #supplyPrice{
+#guests, #banquet, #employeenum, #customer, #data, #supplierName, #supplyPrice, #supName, #supPhone, #supAddress{
     -fx-text-fill: #A17F06;
 }
 
-#choiceBox, #customer {
+#choiceBox, #customer, #noOrders, #ordersByClient, #chooseSupplier, #chooseJob {
     -fx-mark-color: #A17F06;
     -fx-text-fill: #A17F06;
 }
@@ -23,11 +23,43 @@
 #choiceBox .menu-item{
     -fx-background-color:  #252121;
 }
+#chooseJob .label{
+    -fx-text-fill: #A17F06;
+}
+
+#chooseJob .menu-item{
+    -fx-background-color:  #252121;
+}
+
+
+#chooseSupplier .label{
+    -fx-text-fill: #A17F06;
+}
+
+#chooseSupplier .menu-item{
+    -fx-background-color:  #252121;
+}
+
+#ordersByClient .label{
+    -fx-text-fill: #A17F06;
+}
+
+#ordersByClient .menu-item{
+    -fx-background-color:  #252121;
+}
 
 #customer .menu-item{
     -fx-background-color:  #252121;
 }
 #customer .label{
+    -fx-text-fill: #A17F06;
+}
+
+
+#noOrders .menu-item{
+    -fx-background-color:  #252121;
+}
+#noOrders .label{
     -fx-text-fill: #A17F06;
 }
 

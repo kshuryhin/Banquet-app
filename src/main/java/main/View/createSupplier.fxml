@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="816.0" prefWidth="1330.0" style="-fx-background-color: #83C7D6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.CreateSupplierController">
+   <children>
+      <Label layoutX="590.0" layoutY="46.0" text="Новий постачальник" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="137.0" layoutY="143.0" text="Назва:" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="supName" layoutX="243.0" layoutY="143.0" prefHeight="27.0" prefWidth="196.0" style="-fx-background-color: #252121;" />
+      <Label layoutX="9.0" layoutY="198.0" text="Номер телефону:" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="supPhone" layoutX="243.0" layoutY="198.0" prefHeight="27.0" prefWidth="196.0" style="-fx-background-color: #252121;" />
+      <Label layoutX="121.0" layoutY="246.0" text="Адреса:" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="supAddress" layoutX="243.0" layoutY="246.0" prefHeight="27.0" prefWidth="196.0" style="-fx-background-color: #252121;" />
+      <ImageView fitHeight="188.0" fitWidth="240.0" layoutX="926.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="1263.0" onMouseClicked="#switchToAccount" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@exit.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Button layoutX="581.0" layoutY="595.0" mnemonicParsing="false" onAction="#createSupplier" prefHeight="47.0" prefWidth="168.0" style="-fx-background-color: #252121;" text="Створити" textFill="#a17f06">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
@@ -35,12 +36,21 @@ public class AccountController {
 
     String css = cssURL.toExternalForm();
     @FXML
+    Button analysisSups = new Button();
+    @FXML
+    Button job = new Button();
+    @FXML
     Label showLogin = new Label();
     @FXML
     Label showPassword = new Label();
     @FXML
     public void initialize(){
+
         showUserInfo(Repository.autorizedUser);
+        if (Repository.autorizedUser.getPrivilege()!="Admin"){
+            job.setDisable(true);
+            analysisSups.setDisable(true);
+        }
     }
 
     public void showSupplyNumber(Event event){
@@ -78,6 +88,16 @@ public class AccountController {
         stage.show();
     }
 
+    public void switchToSupplyAnalysis(ActionEvent event) throws IOException {
+            URL url = new File("src/main/java/main/View/supply-analysis.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            scene.getStylesheets().add(css);
+            stage.setScene(scene);
+            stage.show();
+    }
+
     public void switchToASuppliers(ActionEvent event) throws IOException {
         URL url = new File("src/main/java/main/View/suppliers.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
@@ -86,6 +106,16 @@ public class AccountController {
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void switchToJob(ActionEvent event) throws IOException {
+            URL url = new File("src/main/java/main/View/job-analysis.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            scene.getStylesheets().add(css);
+            stage.setScene(scene);
+            stage.show();
     }
 
     public void switchToFunctions(Event event) throws IOException {

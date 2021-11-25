@@ -8,8 +8,7 @@ public class Repository {
     public static User autorizedUser;
     public static void main(String[] args) throws SQLException {
         getConnection();
-        int x = Repository.getLastOrder();
-        System.out.println(containsDish(new Dish(8, 34), x));
+        System.out.println(autorizedUser.getPrivilege());
     }
 
     public static Connection getConnection(){
@@ -30,6 +29,7 @@ public class Repository {
         }
         return connection;
     }
+
 
     public static int registration(User user){
         int status = 0;
@@ -78,23 +78,43 @@ public class Repository {
 
     public static int autorization(User user){
         HashMap<String, String> map = new HashMap<>();
-        int status = 0;
+        int id = 0;
         String Login = user.getLogin();
         String Password = user.getPassword();
 
         try {
             Connection connection = Repository.getConnection();
-            PreparedStatement ps = connection.prepareStatement("SELECT COUNT(*) FROM users WHERE Login=? AND Password=?");
+            PreparedStatement ps = connection.prepareStatement("SELECT users.id FROM users WHERE Login=? AND Password=?");
             ps.setString(1, Login);
             ps.setString(2, Password);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                status = rs.getInt(1);
+                id = rs.getInt(1);
             }
         } catch (SQLException ex){
             ex.printStackTrace();
         }
-        return status;
+        return id;
+    }
+
+    public static void ifAdmin(int userID){
+        boolean answer = false;
+        try{
+            Connection connection = Repository.getConnection();
+            PreparedStatement ps = connection.prepareStatement("SELECT admins.userId FROM  admins WHERE userID=?");
+            ps.setInt(1, userID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                if (rs.getInt(1) != 0){
+                    answer = true;
+                }
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        if (answer){
+            autorizedUser.setPrivilege("Admin");
+        }
     }
 
     public static int orderNumber(){
@@ -150,6 +170,40 @@ public class Repository {
         return rs;
     }
 
+    public static ResultSet getCustomersWithoutOrders(){
+        ResultSet rs = null;
+
+        try {
+            Connection connection = Repository.getConnection();
+            PreparedStatement ps = connection.prepareStatement("SELECT customer.Name, customer.LastName, customer.Email" +
+                    " FROM customer " +
+                    "WHERE customer.custID " +
+                    "NOT IN ( SELECT orders.custID FROM orders )");
+            rs = ps.executeQuery();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return rs;
+    }
+
+    public static ResultSet getOrderByCustomer(int id){
+        ResultSet rs = null;
+
+        try {
+            Connection connection = Repository.getConnection();
+            PreparedStatement ps = connection.prepareStatement("SELECT orders.banquetName, orders.Date, customer.Name " +
+                    "FROM orders " +
+                    "JOIN customer ON orders.custID = customer.custID " +
+                    "WHERE customer.custID =? " +
+                    "ORDER BY orders.banquetName");
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return rs;
+    }
+
     public static ResultSet getSuppliers(){
         ResultSet rs = null;
         try{
@@ -173,6 +227,42 @@ public class Repository {
             ex.printStackTrace();
         }
         return rs;
+    }
+
+    public static ResultSet getSupplyBetweenDates(LocalDate fromDate, LocalDate toDate){
+        ResultSet rs = null;
+        try{
+            Connection connection = Repository.getConnection();
+            PreparedStatement ps = connection.prepareStatement("SELECT products.Name, products.FromCountry, products.ShelfLife, supply.Date, supply.Price " +
+                    "FROM products " +
+                    "JOIN supply ON supply.prodID = products.prodID " +
+                    "WHERE supply.Date " +
+                    "BETWEEN ? AND ?");
+            ps.setDate(1, Date.valueOf(fromDate));
+            ps.setDate(2, Date.valueOf(toDate));
+            rs = ps.executeQuery();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return rs;
+    }
+
+    public static int getNumberOfSuppliesBySupplier(int id){
+        int result = 0;
+        ResultSet rs = null;
+        try{
+            Connection connection = Repository.getConnection();
+            PreparedStatement ps = connection.prepareStatement("SELECT COUNT(*) from supply " +
+                    "WHERE supID=?");
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                result = rs.getInt(1);
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return result;
     }
 
     public static int getLastOrder() throws SQLException {
@@ -233,6 +323,40 @@ public class Repository {
         return rs;
     }
 
+    public static ResultSet getJobs(){
+        ResultSet rs = null;
+        try {
+            Connection connection = Repository.getConnection();
+            PreparedStatement ps = connection.prepareStatement("SELECT employmenttype.Name " +
+                    "FROM employmenttype");
+            rs = ps.executeQuery();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return rs;
+    }
+
+    public static ResultSet getEmployeeByJob(String job){
+        ResultSet rs = null;
+        try {
+            Connection connection = Repository.getConnection();
+            PreparedStatement ps = connection.prepareStatement("SELECT employee.Name, employee.LastName, employee.empID, employmenttype.Name " +
+                    "FROM employee " +
+                    "JOIN employeeworktype ON employee.empID = employeeworktype.empID " +
+                    "JOIN employmenttype ON employeeworktype.jobID = employmenttype.JobID " +
+                    "WHERE employeeworktype.jobID = " +
+                    "ANY (SELECT employeeworktype.jobID " +
+                    "FROM employeeworktype " +
+                    "JOIN employmenttype ON employeeworktype.jobID = employmenttype.JobID " +
+                    "WHERE employmenttype.Name =?)");
+            ps.setString(1, job);
+            rs = ps.executeQuery();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return rs;
+    }
+
     public static int getProdIndexByName(String name){
         int index = 0;
         ResultSet rs = null;
@@ -266,6 +390,7 @@ public class Repository {
         }
         return index;
     }
+
     public static int getDishIndexByName(String name){
         int index = 0;
         ResultSet rs = null;
@@ -282,10 +407,6 @@ public class Repository {
         }
         return index;
     }
-
-
-
-
 
     public static void createCustomer(Customer customer){
         String name = customer.getName();
@@ -306,6 +427,25 @@ public class Repository {
             ps.executeUpdate();
             connection.close();
 
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public static void createSupplier(Supplier supplier){
+        String name = supplier.getName();
+        String phone = supplier.getPhone();
+        String address = supplier.getAddress();
+
+        try {
+            Connection connection = Repository.getConnection();
+            PreparedStatement ps = connection.prepareStatement("INSERT  INTO suppliers(Name, Phone, Address) " +
+                    "VALUES(?, ?, ?) ");
+            ps.setString(1, name);
+            ps.setString(2, phone);
+            ps.setString(3, address);
+            ps.executeUpdate();
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
