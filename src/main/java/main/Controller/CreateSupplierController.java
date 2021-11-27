@@ -1,3 +1,4 @@
+//Клас описує логіку створення нового постачальника
 package main.Controller;
 
 import javafx.event.Event;

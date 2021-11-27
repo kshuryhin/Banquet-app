@@ -1,3 +1,4 @@
+//Клас описує логіку аналізу постачань
 package main.Controller;
 
 import javafx.collections.FXCollections;

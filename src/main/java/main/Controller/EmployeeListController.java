@@ -1,3 +1,4 @@
+//Клас створено для відображення аналізу співробітників
 package main.Controller;
 
 import javafx.collections.FXCollections;

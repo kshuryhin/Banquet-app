@@ -1,3 +1,4 @@
+//Клас створено для демонстрації замовлень відносно обраного клієнта
 package main.Controller;
 
 import javafx.collections.FXCollections;

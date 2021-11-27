@@ -1,3 +1,4 @@
+//Клас описує логіку створення безпосередньо замовлення
 package main.Controller;
 
 import javafx.collections.FXCollections;

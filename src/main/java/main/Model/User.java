@@ -1,3 +1,4 @@
+//Клас створенго для зберігання даних користувача
 package main.Model;
 
 public class User {

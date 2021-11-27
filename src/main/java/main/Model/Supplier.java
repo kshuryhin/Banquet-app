@@ -1,3 +1,4 @@
+//Клас створенго для зберігання даних постачальника
 package main.Model;
 
 public class Supplier {

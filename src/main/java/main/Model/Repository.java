@@ -1,3 +1,4 @@
+//Клас створено для встановлення з'єднання з БД та виконання необхідних запитів
 package main.Model;
 import java.sql.*;
 import java.time.LocalDate;

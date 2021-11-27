@@ -1,4 +1,6 @@
+//Клас описує логіку авторизації користувача
 package main.Controller;
+
 
 import javafx.event.Event;
 import javafx.fxml.FXML;

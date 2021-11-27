@@ -1,3 +1,4 @@
+//Клас створенго для зберігання даних прайс-листу
 package main.Model;
 
 public class PriceList {

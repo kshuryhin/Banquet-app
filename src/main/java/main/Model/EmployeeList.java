@@ -1,3 +1,4 @@
+//Клас створенго для зберігання даних списку співробітників
 package main.Model;
 
 import java.util.Date;

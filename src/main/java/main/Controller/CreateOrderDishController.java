@@ -1,3 +1,4 @@
+//Клас описує логіку опису блюд під час створення замовлення
 package main.Controller;
 
 import javafx.collections.FXCollections;

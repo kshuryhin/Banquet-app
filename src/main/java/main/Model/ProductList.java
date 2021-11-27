@@ -1,3 +1,4 @@
+//Клас створенго для зберігання даних довідника продуктів
 package main.Model;
 
 import java.util.Date;

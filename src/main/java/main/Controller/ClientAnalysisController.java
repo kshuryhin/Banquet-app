@@ -1,3 +1,4 @@
+//Клас описує логіку усіх функцій, що доступні в розділі "Аналіз клієнтів"
 package main.Controller;
 
 import javafx.beans.property.SimpleStringProperty;

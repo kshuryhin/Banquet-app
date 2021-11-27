@@ -1,4 +1,7 @@
+//Клас описує логіку усіх функцій, які доступні в розділі "Акаунт"
+
 package main.Controller;
+
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;

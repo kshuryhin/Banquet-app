@@ -1,3 +1,4 @@
+//Клас створенго для зберігання даних замовлення
 package main.Model;
 
 import java.time.LocalDate;

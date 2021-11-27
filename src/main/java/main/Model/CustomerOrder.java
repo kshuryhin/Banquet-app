@@ -1,3 +1,4 @@
+//Клас створенго для зберігання даних замовлення відносно клієнта
 package main.Model;
 
 import java.util.Date;

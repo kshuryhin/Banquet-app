@@ -1,3 +1,4 @@
+//Клас описує логіку переходів в інші розділи з вікна "Функції"
 package main.Controller;
 
 import javafx.collections.FXCollections;

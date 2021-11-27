@@ -1,3 +1,4 @@
+//Клас створено для відображення довідника продуктів
 package main.Controller;
 
 import javafx.collections.FXCollections;

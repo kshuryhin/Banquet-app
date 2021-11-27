@@ -1,3 +1,4 @@
+//Клас створено для відображення аналізу прайс-листу можливих блюд
 package main.Controller;
 
 import javafx.collections.FXCollections;

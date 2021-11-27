@@ -1,3 +1,4 @@
+//Клас створено для обробки дій користувача, який знаходитья у вікні "Скасування замовлення"
 package main.Controller;
 
 import javafx.event.Event;

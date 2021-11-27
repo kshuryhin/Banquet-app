@@ -1,3 +1,4 @@
+//Клас описує логіку створення нової поставки
 package main.Controller;
 
 import javafx.collections.FXCollections;

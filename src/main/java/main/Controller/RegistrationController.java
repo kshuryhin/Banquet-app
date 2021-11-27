@@ -1,3 +1,4 @@
+//Клас описує логіку регістрації користувача
 package main.Controller;
 
 import javafx.event.Event;

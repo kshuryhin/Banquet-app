@@ -1,3 +1,4 @@
+//Клас створенго для зберігання даних блюд
 package main.Model;
 
 public class Dish {

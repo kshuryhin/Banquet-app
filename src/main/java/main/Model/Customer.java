@@ -1,3 +1,4 @@
+//Клас створенго для зберігання даних клієнта
 package main.Model;
 
 public class Customer {

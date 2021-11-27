@@ -1,3 +1,4 @@
+//Клас створено для аналізу посад
 package main.Controller;
 
 import javafx.collections.FXCollections;
